@@ -1,0 +1,100 @@
+ body {
+      font-family: 'Inter', sans-serif;
+      background: #f2f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    form {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    select {
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      width: 60%;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+
+    .card img {
+      width: 100%;
+      max-width: 180px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+    }
+
+    .card-content {
+      text-align: left;
+    }
+
+    .card-content h3 {
+      margin-top: 0;
+      font-size: 22px;
+      color: #333;
+    }
+
+    .card-content p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .voltar {
+      display: block;
+      margin: 30px auto 0;
+      width: 200px;
+      text-align: center;
+      background: #2980b9;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .voltar:hover {
+      background: #1c6690;
+    }
+
+    .erro {
+      text-align: center;
+      color: red;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }

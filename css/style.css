@@ -1,0 +1,115 @@
+body {
+  background: linear-gradient(to right, #003366, #0055a5);
+  color: #000000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d1969;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  background-repeat: repeat;
+  background-size: 300px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+  display: flex; /* Para alinhar com inputs */
+}
+
+h2{
+  color: #333;
+}
+
+h2 i{
+  margin-right: 8px;
+  color: #007BFF; /* cor azul para ícones */
+  font-size: 40px;  
+}
+
+label i {
+  margin-right: 8px;
+  color: #007BFF; /* cor azul para ícones */
+  font-size: 20px;
+}
+
+.voltar {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.cancelar{
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #810a10;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.95); /* contraste com fundo escuro */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 500px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+input, button {
+  display: block;
+  width: 490px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+img {
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+.btn-proposta {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btn-proposta:hover {
+  background-color: #45a049;
+}

@@ -1,0 +1,100 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fundo com gradiente tecnológico */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #003366, #0055a5);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+/* Container central */
+.container {
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 12px;
+  padding: 30px;
+  max-width: 1000px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Título */
+.container h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #003366;
+}
+
+/* Cards dos candidatos */
+.card {
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  border-color: #0055a5;
+}
+
+/* Imagens dos candidatos */
+.card img {
+  max-width: 200px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Texto dos cards */
+.card p {
+  margin: 5px 0;
+  font-size: 18px;
+  color: #222;
+}
+
+/* Radio button */
+input[type="radio"] {
+  transform: scale(1.3);
+  margin-top: 10px;
+}
+
+/* Botão */
+button {
+  background-color: #0055a5;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  margin-top: 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #003366;
+}
+
+/* Link "Ver resultado" */
+a.btn {
+  display: inline-block;
+  margin-top: 15px;
+  color: #0055a5;
+  text-decoration: underline;
+  font-weight: bold;
+}
