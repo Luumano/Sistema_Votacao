@@ -85,8 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Atualiza no banco
-    $stmt = $mysqli->prepare("UPDATE chapas SET nome_chapa = ?, presidente_nome = ?, presidente_foto = ?, email = ? proposta = ? WHERE id = ?");
-    $stmt->bind_param("ssssi", $novo_nome, $novo_presidente, $nova_foto, $nova_proposta, $novo_email, $chapa_id);
+    $stmt = $mysqli->prepare("UPDATE chapas SET nome_chapa = ?, presidente_nome = ?, presidente_foto = ?, email = ?, proposta = ? WHERE id = ?");
+    $stmt->bind_param("sssssi", $novo_nome, $novo_presidente, $nova_foto, $nova_proposta, $novo_email, $chapa_id);
     $stmt->execute();
 
     echo "<script>alert('Chapa atualizada com sucesso!'); window.location.href = 'index.php';</script>";
