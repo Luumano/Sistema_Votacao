@@ -148,7 +148,7 @@ No PowerShell ou Prompt de Comando:
   - abcd efgh ijkl mnop
 ## Usando essa senha no seu código
   - No seu enviar_email.php (ou similar), configure assim:
-      - $mail->Username = 'seuemail@gmail.com'; // seu Gmail
-      - $mail->Password = 'abcdefghijklmnop'; // senha de app gerada
+      - $mail->Username = 'seuemail@gmail.com';  `seu Gmail`
+      - $mail->Password = 'abcdefghijklmnop';  `senha de app gerada`
       - $mail->setFrom('seuemail@gmail.com', 'Sistema de Votação');
 
