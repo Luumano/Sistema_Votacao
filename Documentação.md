@@ -54,12 +54,12 @@ chapas candidatas de forma segura, transparente e simples. Ele permite:
 
 ## 🧩 Modelagem do Banco de Dados
 ### 📁 Tabela eleitores
-Campo      |	  Tipo	  |  Descrição
-id	       |    INT	    | Identificador
-matricula	 |  VARCHAR	  | Matrícula do aluno
-nome	     |  VARCHAR  	| Nome do eleitor
-email	     |  VARCHAR	  | E-mail institucional
-votou	     |  BOOLEAN	  | Se já votou
+  - Campo      |	  Tipo	  |  Descrição
+  - id	       |    INT	    | Identificador
+  - matricula	 |  VARCHAR	  | Matrícula do aluno
+  - nome	     |  VARCHAR  	| Nome do eleitor
+  - email	     |  VARCHAR	  | E-mail institucional
+  - votou	     |  BOOLEAN	  | Se já votou
 
 ### 📁 Tabela chapas
 Campo	          |    Tipo    |	Descrição
