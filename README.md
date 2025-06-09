@@ -1,4 +1,4 @@
-# 🗳️ Sistema de Votação Online - UFC
+# 🗳️ Sistema de Votação Online - Kurama
 
 ## 📌 Visão Geral
 
