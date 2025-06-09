@@ -99,8 +99,6 @@ O Sistema de Votação Online tem como objetivo permitir que estudantes da UFC v
 
 ## 🛠️ Futuras Implementações
 
-- Recuperação de senha por e-mail
-- Integração com sistema acadêmico da UFC
 - Responsividade aprimorada
 - Exportação de resultados em PDF
 - Dashboard com gráficos em tempo real
