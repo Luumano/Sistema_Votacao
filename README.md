@@ -1,3 +1,114 @@
+# 🗳️ Sistema de Votação Online - UFC
+
+## 📌 Visão Geral
+
+O Sistema de Votação Online tem como objetivo permitir que estudantes da UFC votem em chapas candidatas de forma segura, transparente e simples.
+
+---
+
+## ✅ Funcionalidades
+
+- Autenticação de eleitores com e-mail institucional `@alu.ufc.br`
+- Cadastro de chapas com presidente, membros e propostas
+- Login das chapas para editar seus dados
+- Controle de tempo para inscrição e votação
+- Registro e apuração de votos
+- Visualização pública das propostas
+- Painel administrativo com resultados
+
+---
+
+## 💻 Tecnologias Utilizadas
+
+- **PHP** (Backend)
+- **MySQL** (Banco de Dados)
+- **HTML/CSS** (Frontend)
+- **JavaScript** (Interações)
+- **Font Awesome** (Ícones)
+- **Google Fonts** (Tipografia)
+
+---
+
+## 🧩 Modelagem do Banco de Dados
+
+### 📁 `eleitores`
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| id | INT | Identificador |
+| matricula | VARCHAR | Matrícula do aluno |
+| nome | VARCHAR | Nome do eleitor |
+| email | VARCHAR | E-mail institucional |
+| votou | BOOLEAN | Se já votou |
+
+### 📁 `chapas`
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| id | INT | Identificador |
+| nome_chapa | VARCHAR | Nome da chapa |
+| presidente_nome | VARCHAR | Nome do presidente |
+| presidente_foto | VARCHAR | Imagem |
+| proposta | TEXT | Proposta da chapa |
+| foto_chapa | VARCHAR | Imagem da chapa |
+| senha | VARCHAR | Senha criptografada |
+
+### 📁 `membros`
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| id | INT | Identificador |
+| chapa_id | INT | Referência à chapa |
+| nome | VARCHAR | Nome do membro |
+| foto | VARCHAR | Imagem |
+| diretoria | VARCHAR | Cargo na chapa |
+
+### 📁 `votos`
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| id | INT | Identificador |
+| eleitor_id | INT | Referência ao eleitor |
+| chapa_id | INT | Chapa votada |
+
+### 📁 `configuracoes`
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| id | INT | Identificador |
+| inicio_inscricao | DATETIME | Período inicial para inscrição |
+| fim_inscricao | DATETIME | Período final para inscrição |
+| inicio_votacao | DATETIME | Início da votação |
+| fim_votacao | DATETIME | Fim da votação |
+
+---
+
+## ⚖️ Regras de Negócio
+
+- Cada eleitor pode votar apenas uma vez
+- Votação só é permitida dentro do período configurado
+- Apenas e-mails `@alu.ufc.br` podem votar
+- Chapa só pode ser editada com senha correta
+- Propostas ficam disponíveis publicamente
+
+---
+
+## 🔒 Segurança
+
+- Hash de senha com `password_hash()`
+- Sessões PHP para autenticação
+- Proteção contra SQL Injection com `prepare()` e `bind_param()`
+- Uploads de imagem restritos a tipos válidos
+
+---
+
+## 🛠️ Futuras Implementações
+
+- Recuperação de senha por e-mail
+- Integração com sistema acadêmico da UFC
+- Responsividade aprimorada
+- Exportação de resultados em PDF
+- Dashboard com gráficos em tempo real
+
+---
+
+> Desenvolvido para fins acadêmicos e institucionais.
+
 # Sistema de Votação do Centro Acadêmico Instalando Composer e Configurando o GMAIL
 ## Verifique se tem o composer instalado
 No PowerShell ou Prompt de Comando:
