@@ -1,5 +1,9 @@
 <?php
 require 'db.php';
+require 'vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 // Verifica se o período de inscrição está ativo
 $config = $mysqli->query("SELECT * FROM configuracoes LIMIT 1")->fetch_assoc();
@@ -15,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $chapa_nome = $_POST['chapa_nome'];
     $presidente_nome = $_POST['presidente_nome'];
     $proposta = $_POST['proposta'];
+    $email = $_POST['email'];
     $senha_plana = $_POST['senha'];
     $senha_hash = password_hash($senha_plana, PASSWORD_DEFAULT);
 
@@ -27,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     move_uploaded_file($_FILES['chapa_foto']['tmp_name'], "chapa_img/" . $chapa_foto);
 
     // Inserir a chapa
-    $stmt = $mysqli->prepare("INSERT INTO chapas (nome_chapa, presidente_nome, presidente_foto, proposta, foto_chapa, senha) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $chapa_nome, $presidente_nome, $presidente_foto, $proposta, $chapa_foto, $senha_hash);
+    $stmt = $mysqli->prepare("INSERT INTO chapas (nome_chapa, presidente_nome, presidente_foto, proposta, foto_chapa, senha, email) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssss", $chapa_nome, $presidente_nome, $presidente_foto, $proposta, $chapa_foto, $senha_hash, $email);
     $stmt->execute();
     $chapa_id = $mysqli->insert_id;
 
@@ -45,7 +50,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     echo "<script>alert('Chapa registrada com sucesso!'); window.location.href = 'index.php';</script>";
+
+    
+        // Envia o e-mail com PHPMailer
+        $mail = new PHPMailer(true);
+
+        try {
+            // Configurações do servidor SMTP
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'mgermano578@gmail.com';           // seu e-mail Gmail
+            $mail->Password   = 'bjmhrjsijxdlwdfz';      // sua senha de aplicativo
+            $mail->SMTPSecure = 'tls';
+            $mail->Port       = 587;
+
+            // Remetente e destinatário
+            $mail->setFrom('mgermano578@gmail.com', 'Sistema de Votação');
+            $mail->addAddress($email, $presidente_nome);
+
+            $mail->isHTML(true);
+            $mail->Subject = 'Confirmação de Inscrição da Chapa';
+            $mail->Body    = "
+                <h2>Chapa Registrada com Sucesso!</h2>
+                <p>Olá <strong>$presidente_nome</strong>, sua chapa <strong>$nome_chapa</strong> foi registrada com sucesso no sistema de votação.</p>
+                <p><strong>Resumo:</strong></p>
+                <ul>
+                    <li>Email cadastrado: $email</li>
+                    <li>Proposta: $proposta</li>
+                </ul>
+                <p>Você poderá editar sua inscrição futuramente usando o e-mail e senha cadastrados, dentro do período permitido.</p>
+                <br>
+                <p>Atenciosamente,<br>Sistema de Votação - Kurama</p>
+             ";
+
+        $mail->send();
+        // Nenhuma mensagem extra aqui, pois já há um alert logo depois
+        } catch (Exception $e) {
+        echo "<script>alert('Chapa registrada, mas falha ao enviar e-mail: {$mail->ErrorInfo}');</script>";
+    }
 }
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -67,6 +115,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <label>Nome do Presidente:</label>
         <input type="text" name="presidente_nome" required>
+
+        <label for="email">Email para entrar em contato:</label>
+        <input type="text" name="email" required placeholder="Email institucional (@alu.ufc.br)">
 
         <label>Foto do Presidente:</label>
         <input type="file" name="presidente_foto" accept="image/*" required>
