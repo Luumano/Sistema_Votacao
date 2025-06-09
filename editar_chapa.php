@@ -71,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $novo_nome = trim($_POST['nome_chapa']);
     $novo_presidente = trim($_POST['presidente_nome']);
     $nova_proposta = trim($_POST['proposta']);
+    $novo_email = trim($_POST['email']);
 
     // Atualiza a foto se houver nova
     if (!empty($_FILES['presidente_foto']['name'])) {
@@ -84,8 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Atualiza no banco
-    $stmt = $mysqli->prepare("UPDATE chapas SET nome_chapa = ?, presidente_nome = ?, presidente_foto = ?, proposta = ? WHERE id = ?");
-    $stmt->bind_param("ssssi", $novo_nome, $novo_presidente, $nova_foto, $nova_proposta, $chapa_id);
+    $stmt = $mysqli->prepare("UPDATE chapas SET nome_chapa = ?, presidente_nome = ?, presidente_foto = ?, email = ? proposta = ? WHERE id = ?");
+    $stmt->bind_param("ssssi", $novo_nome, $novo_presidente, $nova_foto, $nova_proposta, $novo_email, $chapa_id);
     $stmt->execute();
 
     echo "<script>alert('Chapa atualizada com sucesso!'); window.location.href = 'index.php';</script>";
@@ -147,10 +148,13 @@ if (isset($_POST['membros'])) {
     <h2>Editar Chapa</h2>
     <form method="POST" enctype="multipart/form-data">
         <label>Nome da Chapa:</label>
-        <input type="text" name="nome_chapa" value="<?php echo htmlspecialchars($chapa['nome_chapa']); ?>" required>
+        <input type="text" name="nome_chapa" value="<?php echo htmlspecialchars($chapa['nome_chapa']); ?>">
         
         <label>Nome do Presidente:</label>
-        <input type="text" name="presidente_nome" value="<?php echo htmlspecialchars($chapa['presidente_nome']); ?>" required>
+        <input type="text" name="presidente_nome" value="<?php echo htmlspecialchars($chapa['presidente_nome']); ?>">
+
+        <label>Novo email:</label>
+        <input type="text" name="novo_email" value="<?php echo htmlspecialchars($chapa['email']); ?>">
 
         <label>Foto Atual do Presidente:</label><br>
         <img src="img/<?php echo htmlspecialchars($chapa['presidente_foto']); ?>" width="150"><br>
@@ -169,7 +173,7 @@ if (isset($_POST['membros'])) {
                     value="<?php echo htmlspecialchars($membro['nome']); ?>" required>
 
                 <label>Foto Atual:</label><br>
-                <img src="img/<?php echo htmlspecialchars($membro['foto']); ?>" width="100"><br>
+                <img src="membros_img/<?php echo htmlspecialchars($membro['foto']); ?>" width="100"><br>
 
                 <label>Nova Foto (opcional):</label>
                 <input type="file" name="membros[<?php echo $membro['id']; ?>][foto]" accept="image/*">
