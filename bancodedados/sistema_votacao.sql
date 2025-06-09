@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 05/06/2025 às 18:13
+-- Tempo de geração: 09/06/2025 às 20:53
 -- Versão do servidor: 9.1.0
 -- Versão do PHP: 8.3.14
 
@@ -59,16 +59,22 @@ CREATE TABLE IF NOT EXISTS `chapas` (
   `foto_chapa` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL,
   `data_criacao` datetime DEFAULT CURRENT_TIMESTAMP,
+  `email` varchar(255) NOT NULL,
+  `token_recuperacao` varchar(255) DEFAULT NULL,
+  `token_expira` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `chapas`
 --
 
-INSERT INTO `chapas` (`id`, `nome_chapa`, `presidente_nome`, `presidente_foto`, `proposta`, `foto_chapa`, `senha`, `data_criacao`) VALUES
-(1, 'Solução', 'Vicente Neto', 'hospedagem.png', 'Mudar tudo no curso de SI\r\nFazer uma revolução', 'hospedagem.png', NULL, '2025-06-05 14:43:32'),
-(2, 'EVENA', 'Germano', 'ouvidos.jpg', 'Otima Chapa\r\nVolte em nós', 'imagem.jpg', '4231', '2025-06-05 14:43:32');
+INSERT INTO `chapas` (`id`, `nome_chapa`, `presidente_nome`, `presidente_foto`, `proposta`, `foto_chapa`, `senha`, `data_criacao`, `email`, `token_recuperacao`, `token_expira`) VALUES
+(1, 'Solução', 'Vicente Neto', 'hospedagem.png', 'Mudar tudo no curso de SI\r\nFazer uma revolução', 'hospedagem.png', NULL, '2025-06-05 14:43:32', '', NULL, NULL),
+(2, 'EVENA', 'Germano', 'ouvidos.jpg', 'Otima Chapa\r\nVolte em nós', 'imagem.jpg', '4231', '2025-06-05 14:43:32', '', NULL, NULL),
+(3, 'EVENE', 'Germano', 'hospedagem.png', 'A melhor chapa de todas', 'OIP (1).jpeg', '$2y$10$Wb5OWwCept7fhamTIPQgpOXbOjBMbZmCtnkJCWGc7rWlLZVCZ/Tba', '2025-06-09 17:15:41', 'mgermano@alu.ufc.br', '77851fe21789db03fd52b40afb540e7c', '2025-06-09 21:32:03'),
+(4, 'Lipqi', 'Livia', 'OIP (2).jpeg', 'Vamos ser do bem', 'hospedagem.png', '$2y$10$eW4s7YzoS2UyAkfLbMHChOEU4J4xQPVNL68il13z8JR1.U14A2exK', '2025-06-09 17:32:08', 'mgermano@alu.ufc.br', NULL, NULL),
+(5, 'Lipqia', 'Livia', 'OIP (2).jpeg', 'Vamos vencer', 'hospedagem.png', '$2y$10$5t8EVdia9/24XcGMjhDGHukqaxMuXEfhqhTjxrhLAlU.3neuIhHEi', '2025-06-09 17:41:35', 'mgermano@alu.ufc.br', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -91,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `configuracoes` (
 --
 
 INSERT INTO `configuracoes` (`id`, `inicio_inscricao`, `fim_inscricao`, `inicio_votacao`, `fim_votacao`) VALUES
-(1, '2025-06-05 14:15:00', '2025-06-07 14:10:00', '2025-06-05 14:10:00', '2025-06-06 18:10:00');
+(1, '2025-06-09 14:15:00', '2025-06-11 14:10:00', '2025-06-17 14:10:00', '2025-06-20 18:10:00');
 
 -- --------------------------------------------------------
 
@@ -108,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `membros` (
   `diretoria` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `chapa_id` (`chapa_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `membros`
@@ -117,7 +123,11 @@ CREATE TABLE IF NOT EXISTS `membros` (
 INSERT INTO `membros` (`id`, `chapa_id`, `nome`, `foto`, `diretoria`) VALUES
 (1, 1, 'Germano', 'gato.jpg', 'Diretor Financeiro'),
 (2, 2, 'Vicente', 'ouvidos.jpg', 'Vice-Presidente'),
-(3, 2, 'Camila', 'gato.jpg', 'Secretário');
+(3, 2, 'Camila', 'gato.jpg', 'Secretário'),
+(4, 3, 'Vicente', 'Imagem do WhatsApp de 2025-06-05 à(s) 10.42.03_b9a0fda8.jpg', 'Vice-Presidente'),
+(5, 3, 'Livia', 'Planta-estrutura.png', 'Diretor Financeiro'),
+(6, 4, 'Vicente', 'OIP (1).jpeg', 'Diretor de Eventos'),
+(7, 5, 'Vicente', 'OIP (2).jpeg', 'Diretor Acadêmico');
 
 -- --------------------------------------------------------
 
