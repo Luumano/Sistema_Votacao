@@ -154,7 +154,7 @@ if (isset($_POST['membros'])) {
         <input type="text" name="presidente_nome" value="<?php echo htmlspecialchars($chapa['presidente_nome']); ?>">
 
         <label>Novo email:</label>
-        <input type="text" name="novo_email" value="<?php echo htmlspecialchars($chapa['email']); ?>">
+        <input type="text" name="email" value="<?php echo htmlspecialchars($chapa['email']); ?>">
 
         <label>Foto Atual do Presidente:</label><br>
         <img src="img/<?php echo htmlspecialchars($chapa['presidente_foto']); ?>" width="150"><br>
