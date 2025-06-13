@@ -111,5 +111,51 @@ img {
 }
 
 .btn-proposta:hover {
-  background-color: #45a049;
+  background-color: #106214;
+}
+
+.btn-cadastrar {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #af784c;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btn-cadastrar:hover {
+  background-color: #814f27;
+}
+
+.btn-resultado {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #4c4caf;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btn-resultado:hover {
+  background-color: #1c1c61;
+}
+
+
+.btn-editar {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #c5b207;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btn-editar:hover {
+  background-color: #776c08;
 }
