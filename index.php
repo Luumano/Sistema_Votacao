@@ -28,9 +28,11 @@ if (isset($_SESSION['votou'])) {
       <button type="submit"><i class="fa-solid fa-right-to-bracket"></i> Entrar</button>
     </form>
               <!-- Adicione este botão abaixo do formulário -->
-      <a href="propostas.php" class="btn-proposta">Ver Propostas dos Candidatos</a>
-      <a href="registrar_chapa.php" class="btn-cadastrar"><i class="fa-solid fa-arrow-left"></i> Cadastrar Chapa</a>
-      <a href="login_editar_chapa.php" class="btn-proposta"><i class="fa-solid fa-user-pen"></i> Editar Chapa</a>
+ <a href="propostas.php" class="btn-proposta">Ver Propostas dos Candidatos</a>
+<a href="registrar_chapa.php" class="btn-cadastrar"><i class="fa-solid fa-arrow-left"></i> Cadastrar Chapa</a>
+<a href="login_editar_chapa.php" class="btn-editar"><i class="fa-solid fa-user-pen"></i> Editar Chapa</a>
+<a href="apuracao.php" class="btn-resultado"><i class="fa-solid fa-chart-line"></i> Ver Apuração</a>
+
   </div>
     <script src="https://kit.fontawesome.com/22a4a36307.js" crossorigin="anonymous"></script>
 </body>
